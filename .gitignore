@@ -1,0 +1,6 @@
+*.int
+*.dmb
+*.rsc
+*.log
+*.lk
+./config.json

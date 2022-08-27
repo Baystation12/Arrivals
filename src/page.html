@@ -1,0 +1,63 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" style="background:#222">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=IE8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style type="text/css">
+html, body {
+  padding: 8px;
+  font-family: Verdana, Geneva, sans-serif;
+  background: #222;
+  color: #eee;
+}
+</style>
+<title></title>
+<head>
+<body scroll="auto">
+<div>
+  Hello. I'm an agreement, or maybe a lore dump. Reading me is a good thing.<br>
+  After a few seconds, you'll be able to move on from here by using the accept button.<br>
+  Be kind!
+</div>
+<button id="button" disabled="true">(Please Wait)</button>
+<script type="text/javascript">
+var code
+
+function requestEntry () {
+  if (!code)
+    return
+  var button = document.getElementById('button')
+  button.disabled = true
+  var request = new XMLHttpRequest ()
+  request.open('GET', '?entry=' + code)
+  request.send()
+}
+
+function setCode (_code) {
+  code = _code
+  var button = document.getElementById('button')
+  button.disabled = false
+  button.innerText = 'Accept'
+  button.onclick = requestEntry
+}
+
+function requestCode () {
+  var request = new XMLHttpRequest ()
+  request.open('GET', '?code=1')
+  request.onreadystatechange = function () {
+    if (request.readyState !== 4)
+      return
+    if (request.status !== 200)
+      return
+  }
+  request.send()
+}
+
+setTimeout(function () {
+  requestCode()
+}, 1e3)
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+window "main"
+  elem "main"
+    type = main
+    size = 1280x720
+    statusbar = false
+    saved-params=""
+  elem "view"
+    type = browser
+    size = 1280x720
+    anchor1 = 0,0
+    anchor2 = 100,100
+    is-default = true
+    saved-params=""
